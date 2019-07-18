@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+        app:
+                image: app:${APP_VERSION}
+                build: .
+                depends_on: 
+                - mongodb
+                ports:
+                        - target: 8080
+                          protocol: tcp
+        mongodb:
+                image: mongo:latest
+                container_name: mongodb
